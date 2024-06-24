@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card rounded">
+      <div class="infoInput">
+        <div class="billDiv">
+          <div class="error-text" id="billError"><p></p></div>
+          <label for="bill">Bill</label>
+          <input
+            type="number"
+            class="rounded"
+            id="bill"
+            placeholder="0.00"
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='0.00'"
+          />
+          <div class="icon">
+            <img src="./images/icon-dollar.svg" alt="" />
+          </div>
+        </div>
+        <div class="btnDiv">
+          <p class="btnLabel">Select Tip</p>
+          <div class="btns">
+            <input type="button" value="5%" class="button-1 rounded" id="5%" />
+            <input
+              type="button"
+              value="10%"
+              class="button-2 rounded"
+              id="10%"
+            />
+            <input
+              type="button"
+              value="15%"
+              class="button-3 rounded"
+              id="15%"
+            />
+            <input
+              type="button"
+              value="25%"
+              class="button-4 rounded"
+              id="25%"
+            />
+            <input
+              type="button"
+              value="50%"
+              class="button-5 rounded"
+              id="50%"
+            />
+            <input
+              type="number"
+              placeholder="Custom"
+              class="button-6 rounded"
+              id="custom"
+              onfocus="this.placeholder='', this.style.border='2px solid #26c0ab'"
+              onblur="this.placeholder='Custom'"
+            />
+          </div>
+        </div>
+        <div class="peopleDiv">
+          <div class="error-text" id="noPeopleError"><p></p></div>
+          <label for="noPeople">Number of People</label>
+          <input
+            type="number"
+            id="noPeople"
+            class="rounded"
+            placeholder="0"
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='0'"
+          />
+          <div class="icon">
+            <img src="./images/icon-person.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="results rounded">
+        <div class="tip-container">
+          <div class="tip-text">
+            <div class="t-amount">Tip Amount</div>
+            <div class="t-details">/ person</div>
+          </div>
+          <div class="tip-results">$-.--</div>
+        </div>
+
+        <div class="total-container">
+          <div class="total-text">
+            <div class="total-amount">Total</div>
+            <div class="total-details">/ person</div>
+          </div>
+          <div class="total-results" id="totalResults">$-.--</div>
+        </div>
+
+        <button class="reset-button rounded">RESET</button>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

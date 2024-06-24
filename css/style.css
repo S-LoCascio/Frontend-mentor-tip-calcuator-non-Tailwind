@@ -1,0 +1,232 @@
+/* Colors and font */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* General Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: hsl(185, 41%, 84%);
+  font-family: "space Mono", monospace;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.rounded {
+  border-radius: 1vh;
+}
+
+.card {
+  background-color: white;
+  height: 420px;
+  width: 50%;
+  margin-top: 12%;
+  margin-left: 25%;
+  padding: 2%;
+  display: flex;
+}
+
+input:hover {
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Specifics */
+.infoInput {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 5%;
+}
+
+.billDiv {
+  font-size: 16px;
+  position: relative;
+}
+.billDiv .error-text {
+  position: absolute;
+  color: red;
+  right: 12px;
+  font-size: 16px;
+  top: 3px;
+}
+.billDiv label {
+  margin-bottom: 2%;
+}
+.billDiv input {
+  color: hsl(183, 100%, 15%);
+  font-size: 20px;
+  font-family: "space mono", monospace;
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  height: 36px;
+  margin-bottom: 8%;
+  text-indent: 340px;
+}
+.billDiv .incorrect {
+  border: 2px solid red;
+}
+.billDiv input::-moz-placeholder {
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  text-indent: 340px;
+}
+.billDiv input::placeholder {
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  text-indent: 340px;
+}
+.billDiv .icon {
+  position: absolute;
+  top: 38px;
+  left: 12px;
+}
+
+input {
+  width: 100%;
+}
+
+.btnDiv {
+  margin-bottom: 10%;
+}
+.btnDiv p {
+  margin-bottom: 2%;
+}
+.btnDiv .btns {
+  display: grid;
+  grid-gap: 5%;
+  grid-row-gap: 25%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 50px;
+}
+.btnDiv .btns .button-1 {
+  grid-column: 1/2;
+  grid-row: 1/-3;
+}
+.btnDiv .btns input {
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(189, 41%, 97%);
+  font-family: "space Mono", monospace;
+  font-size: 20px;
+  height: 40px;
+}
+.btnDiv .btns .button-6 {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+  border: none;
+  text-indent: 50px;
+}
+.btnDiv .btns .button-6::-moz-placeholder {
+  text-indent: 24px;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+}
+.btnDiv .btns .button-6::placeholder {
+  text-indent: 24px;
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+}
+
+label {
+  display: block;
+}
+
+.peopleDiv {
+  font-size: 16px;
+  margin-top: 10%;
+  position: relative;
+}
+.peopleDiv .error-text {
+  position: absolute;
+  color: red;
+  right: 12px;
+  font-size: 16px;
+  top: -3px;
+}
+.peopleDiv input {
+  color: hsl(183, 100%, 15%);
+  font-size: 20px;
+  font-family: "space mono", monospace;
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  height: 36px;
+  margin-bottom: 10%;
+  text-indent: 370px;
+}
+.peopleDiv .incorrect {
+  border: 2px solid red;
+}
+.peopleDiv input::-moz-placeholder {
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  text-indent: 370px;
+}
+.peopleDiv input::placeholder {
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  text-indent: 370px;
+}
+.peopleDiv .icon {
+  position: absolute;
+  top: 32px;
+  left: 12px;
+}
+
+.results {
+  width: 50%;
+  padding: 5%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+}
+.results .t-amount,
+.results .total-amount {
+  font-size: 16px;
+}
+.results .t-details,
+.results .total-details {
+  font-size: 10px;
+  color: hsl(184, 14%, 56%);
+}
+.results .tip-results,
+.results .total-results {
+  color: hsl(172, 67%, 45%);
+  font-size: 26px;
+}
+.results .tip-container,
+.results .total-container {
+  display: flex;
+  justify-content: space-between;
+}
+.results .tip-container {
+  margin-bottom: 20%;
+}
+.results .total-container {
+  margin-bottom: 30%;
+}
+.results button {
+  height: 40px;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-family: "space Mono", monospace;
+  font-size: 20px;
+  font-weight: 700;
+}
