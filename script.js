@@ -10,6 +10,7 @@ const tenTip = document.getElementById("10%");
 const fifteenTip = document.getElementById("15%");
 const twenfiveTip = document.getElementById("25%");
 const fiftyTip = document.getElementById("50%");
+const tipButtonCollection = document.querySelectorAll(".tip-btn");
 
 const totalResults = document.getElementById("totalResults");
 
@@ -38,15 +39,13 @@ people.addEventListener("change", function () {
 /* Btn States */
 
 function activeButton(selectedBtn) {
-  selectedBtn.style.backgroundColor = "#26c0ab";
-  selectedBtn.style.color = "#00494d";
-  selectedBtn.style.border = "none";
+  selectedBtn.classList.remove("inactive-btn");
+  selectedBtn.classList.add("active-btn");
 }
 
 function buttonReset(otherButton) {
-  otherButton.style.backgroundColor = "#00494d";
-  otherButton.style.color = "#f4fafa";
-  otherButton.style.border = "none";
+  otherButton.classList.add("inactive-btn");
+  otherButton.classList.remove("active-btn");
 }
 
 /* btn selection */
@@ -56,80 +55,114 @@ function buttonSelection(e) {
 
   switch (buttonId) {
     case "5%": {
-      let result = 0.05;
+      fiveTip.id = "active5";
       activeButton(fiveTip);
-      buttonReset(tenTip);
-      buttonReset(fifteenTip);
-      buttonReset(twenfiveTip);
-      buttonReset(fiftyTip);
+
+      let remainder = [tenTip, fifteenTip, twenfiveTip, fiftyTip];
+      remainder.forEach(buttonReset);
       customTip.style.border = "none";
-      /* console.log(result); */
-      return result;
+
+      tenTip.id = "10%";
+      fifteenTip.id = "15%";
+      twenfiveTip.id = "25%";
+      fiftyTip.id = "50%";
+      customTip.id = "custom";
+
+      break;
     }
+
     case "10%": {
-      let result = 0.1;
+      tenTip.id = "active10";
       activeButton(tenTip);
-      buttonReset(fiveTip);
-      buttonReset(fifteenTip);
-      buttonReset(twenfiveTip);
-      buttonReset(fiftyTip);
+
+      let remainder = [fiveTip, fifteenTip, twenfiveTip, fiftyTip];
+      remainder.forEach(buttonReset);
       customTip.style.border = "none";
-      console.log(result);
-      return result;
+
+      fiveTip.id = "5%";
+      fifteenTip.id = "15%";
+      twenfiveTip.id = "25%";
+      fiftyTip.id = "50%";
+      customTip.id = "custom";
+
+      break;
     }
+
     case "15%": {
-      let result = 0.15;
+      fifteenTip.id = "active15";
       activeButton(fifteenTip);
-      buttonReset(fiveTip);
-      buttonReset(tenTip);
-      buttonReset(twenfiveTip);
-      buttonReset(fiftyTip);
+
+      let remainder = [fiveTip, tenTip, twenfiveTip, fiftyTip];
+      remainder.forEach(buttonReset);
       customTip.style.border = "none";
-      console.log(result);
-      return result;
+
+      tenTip.id = "10%";
+      fiveTip.id = "5%";
+      twenfiveTip.id = "25%";
+      fiftyTip.id = "50%";
+      customTip.id = "custom";
+
+      break;
     }
+
     case "25%": {
-      let result = 0.25;
+      twenfiveTip.id = "active25";
       activeButton(twenfiveTip);
-      buttonReset(fiveTip);
-      buttonReset(tenTip);
-      buttonReset(fifteenTip);
-      buttonReset(fiftyTip);
+
+      let remainder = [fiveTip, tenTip, fifteenTip, fiftyTip];
+      remainder.forEach(buttonReset);
       customTip.style.border = "none";
-      console.log(result);
-      return result;
+
+      tenTip.id = "10%";
+      fifteenTip.id = "15%";
+      fiveTip.id = "5%";
+      fiftyTip.id = "50%";
+      customTip.id = "custom";
+
+      break;
     }
+
     case "50%": {
-      let result = 0.5;
+      fiftyTip.id = "active50";
       activeButton(fiftyTip);
-      buttonReset(fiveTip);
-      buttonReset(tenTip);
-      buttonReset(fifteenTip);
-      buttonReset(twenfiveTip);
+
+      let remainder = [fiveTip, tenTip, twenfiveTip, fifteenTip];
+      remainder.forEach(buttonReset);
       customTip.style.border = "none";
-      console.log(result);
-      return result;
+
+      tenTip.id = "10%";
+      fifteenTip.id = "15%";
+      twenfiveTip.id = "25%";
+      fiveTip.id = "5%";
+      customTip.id = "custom";
+
+      break;
     }
+
     case "custom": {
-      let result = customTip.value * 0.01;
+      customTip.id = "activeCust";
       customTip.style.border = "2px solid #26c0ab";
-      buttonReset(fiftyTip);
-      buttonReset(fiveTip);
-      buttonReset(tenTip);
-      buttonReset(fifteenTip);
-      buttonReset(twenfiveTip);
-      console.log(result);
-      return result;
+
+      let remainder = [fiveTip, tenTip, fifteenTip, twenfiveTip, fiftyTip];
+      remainder.forEach(buttonReset);
+
+      fiveTip.id = "5%";
+      tenTip.id = "10%";
+      fifteenTip.id = "15%";
+      twenfiveTip.id = "25%";
+      fiftyTip.id = "50%";
+      customTip.id = "custom";
+
+      break;
     }
   }
 }
 
-fiveTip.addEventListener("click", buttonSelection);
-tenTip.addEventListener("click", buttonSelection);
-fifteenTip.addEventListener("click", buttonSelection);
-twenfiveTip.addEventListener("click", buttonSelection);
-fiftyTip.addEventListener("click", buttonSelection);
-customTip.addEventListener("click", buttonSelection);
+tipButtonCollection.forEach((item) =>
+  item.addEventListener("click", buttonSelection)
+);
+
+/* Mathing the Math on the side portion */
 
 people.addEventListener("change", resultsModification);
 
@@ -137,7 +170,7 @@ function resultsModification() {
   let peopleValue = people.value;
   let billValue = bill.value;
   let totalUnrounded = billValue / peopleValue;
+
   total = Math.round(totalUnrounded * 100) / 100;
-  console.log(`$ ${total}`);
   totalResults.innerHTML = `$ ${total}`;
 }
