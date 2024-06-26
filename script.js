@@ -11,6 +11,7 @@ const fifteenTip = document.getElementById("15%");
 const twenfiveTip = document.getElementById("25%");
 const fiftyTip = document.getElementById("50%");
 const tipButtonCollection = document.querySelectorAll(".tip-btn");
+const results = document.getElementById("results");
 
 const totalResults = document.getElementById("totalResults");
 
@@ -55,103 +56,66 @@ function buttonSelection(e) {
 
   switch (buttonId) {
     case "5%": {
-      fiveTip.id = "active5";
+      results.id = `active5`;
       activeButton(fiveTip);
 
       let remainder = [tenTip, fifteenTip, twenfiveTip, fiftyTip];
       remainder.forEach(buttonReset);
       customTip.style.border = "none";
 
-      tenTip.id = "10%";
-      fifteenTip.id = "15%";
-      twenfiveTip.id = "25%";
-      fiftyTip.id = "50%";
-      customTip.id = "custom";
-
       break;
     }
 
     case "10%": {
-      tenTip.id = "active10";
+      results.id = "active10";
       activeButton(tenTip);
 
       let remainder = [fiveTip, fifteenTip, twenfiveTip, fiftyTip];
       remainder.forEach(buttonReset);
       customTip.style.border = "none";
 
-      fiveTip.id = "5%";
-      fifteenTip.id = "15%";
-      twenfiveTip.id = "25%";
-      fiftyTip.id = "50%";
-      customTip.id = "custom";
-
       break;
     }
 
     case "15%": {
-      fifteenTip.id = "active15";
+      results.id = "active15";
       activeButton(fifteenTip);
 
       let remainder = [fiveTip, tenTip, twenfiveTip, fiftyTip];
       remainder.forEach(buttonReset);
       customTip.style.border = "none";
 
-      tenTip.id = "10%";
-      fiveTip.id = "5%";
-      twenfiveTip.id = "25%";
-      fiftyTip.id = "50%";
-      customTip.id = "custom";
-
       break;
     }
 
     case "25%": {
-      twenfiveTip.id = "active25";
+      results.id = "active25";
       activeButton(twenfiveTip);
 
       let remainder = [fiveTip, tenTip, fifteenTip, fiftyTip];
       remainder.forEach(buttonReset);
       customTip.style.border = "none";
 
-      tenTip.id = "10%";
-      fifteenTip.id = "15%";
-      fiveTip.id = "5%";
-      fiftyTip.id = "50%";
-      customTip.id = "custom";
-
       break;
     }
 
     case "50%": {
-      fiftyTip.id = "active50";
+      results.id = "active50";
       activeButton(fiftyTip);
 
       let remainder = [fiveTip, tenTip, twenfiveTip, fifteenTip];
       remainder.forEach(buttonReset);
       customTip.style.border = "none";
 
-      tenTip.id = "10%";
-      fifteenTip.id = "15%";
-      twenfiveTip.id = "25%";
-      fiveTip.id = "5%";
-      customTip.id = "custom";
-
       break;
     }
 
     case "custom": {
-      customTip.id = "activeCust";
+      results.id = "activeCust";
       customTip.style.border = "2px solid #26c0ab";
 
       let remainder = [fiveTip, tenTip, fifteenTip, twenfiveTip, fiftyTip];
       remainder.forEach(buttonReset);
-
-      fiveTip.id = "5%";
-      tenTip.id = "10%";
-      fifteenTip.id = "15%";
-      twenfiveTip.id = "25%";
-      fiftyTip.id = "50%";
-      customTip.id = "custom";
 
       break;
     }
@@ -164,13 +128,90 @@ tipButtonCollection.forEach((item) =>
 
 /* Mathing the Math on the side portion */
 
-people.addEventListener("change", resultsModification);
+const tipAmount = document.getElementById(`tipResults`);
+const totalAmount = document.getElementById(`totalResults`);
 
-function resultsModification() {
-  let peopleValue = people.value;
+people.addEventListener("blur", getTheValues);
+
+function getTheValues() {
   let billValue = bill.value;
-  let totalUnrounded = billValue / peopleValue;
+  let peopleValue = people.value;
+  console.log(`Your bill Value is $ ${billValue}`);
+  console.log(`Your people Value is ${peopleValue}`);
 
-  total = Math.round(totalUnrounded * 100) / 100;
-  totalResults.innerHTML = `$ ${total}`;
+  getTheResultsId();
+}
+
+function getTheResultsId() {
+  resultsID = document.querySelector('[id^="active"]').id;
+
+  switch (resultsID) {
+    case "active5": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let t = 0.05;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+
+    case "active10": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let t = 0.1;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+
+    case "active15": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let t = 0.15;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+
+    case "active25": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let t = 0.25;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+
+    case "active50": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let t = 0.5;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+
+    case "activeCust": {
+      let billValue = bill.value;
+      let peopleValue = people.value;
+      let tipAmount = customTip.value;
+      let t = tipAmount * 0.01;
+      TipNumber = TipAmountCalculator(billValue, peopleValue, t);
+      TotalNumber = totalAmountCalculator(billValue, peopleValue, t);
+      break;
+    }
+  }
+}
+
+function TipAmountCalculator(B, P, T) {
+  result = (B / P) * T;
+  moneyResult = Math.round(result * 100) / 100;
+  tipAmount.innerHTML = `$${moneyResult}`;
+}
+
+function totalAmountCalculator(B, P, T) {
+  tipResult = (B / P) * T;
+  total = B / P + tipResult;
+  moneyResult = Math.round(total * 100) / 100;
+  totalAmount.innerHTML = `$${moneyResult}`;
 }
