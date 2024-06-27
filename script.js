@@ -1,6 +1,5 @@
 const bill = document.getElementById("bill");
 const billError = document.getElementById("billError");
-
 const people = document.getElementById("noPeople");
 const peopleError = document.getElementById("noPeopleError");
 
@@ -11,8 +10,8 @@ const fifteenTip = document.getElementById("15%");
 const twenfiveTip = document.getElementById("25%");
 const fiftyTip = document.getElementById("50%");
 const tipButtonCollection = document.querySelectorAll(".tip-btn");
-const results = document.getElementById("results");
 
+const results = document.getElementById("results");
 const totalResults = document.getElementById("totalResults");
 
 /* verification function for inputs */
@@ -131,16 +130,7 @@ tipButtonCollection.forEach((item) =>
 const tipAmount = document.getElementById(`tipResults`);
 const totalAmount = document.getElementById(`totalResults`);
 
-people.addEventListener("blur", getTheValues);
-
-function getTheValues() {
-  let billValue = bill.value;
-  let peopleValue = people.value;
-  console.log(`Your bill Value is $ ${billValue}`);
-  console.log(`Your people Value is ${peopleValue}`);
-
-  getTheResultsId();
-}
+people.addEventListener("blur", getTheResultsId);
 
 function getTheResultsId() {
   resultsID = document.querySelector('[id^="active"]').id;
@@ -214,4 +204,23 @@ function totalAmountCalculator(B, P, T) {
   total = B / P + tipResult;
   moneyResult = Math.round(total * 100) / 100;
   totalAmount.innerHTML = `$${moneyResult}`;
+}
+
+/* Reset Button */
+
+const reset = document.getElementById("resetBtn");
+
+reset.addEventListener("click", blankSlate);
+
+function blankSlate() {
+  let btns = [fiveTip, tenTip, fifteenTip, twenfiveTip, fiftyTip];
+  btns.forEach(buttonReset);
+
+  totalAmount.innerHTML = `$-.--`;
+  tipAmount.innerHTML = `$-.--`;
+  bill.value = "";
+  bill.classList.remove("incorrect");
+  people.value = "";
+  people.classList.remove("incorrect");
+  customTip.style.border = "none";
 }
