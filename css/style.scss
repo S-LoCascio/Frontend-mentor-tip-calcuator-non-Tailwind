@@ -19,7 +19,9 @@ $strongCyan: hsl(172, 67%, 45%);
 body {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  margin: 0;
+  min-height: 100vh;
   width: 100%;
   background-color: $lightGrayishCyan;
   font-family: "space Mono", monospace;
@@ -32,12 +34,19 @@ body {
   border-radius: 1vh;
 }
 
+.logo {
+  margin-top: 5%;
+
+  h1 {
+    font-size: 25px;
+  }
+}
+
 .card {
   background-color: white;
   height: 420px;
-  width: 50%;
-  margin-top: 12%;
-  margin-left: 25%;
+  width: 50dvw;
+  margin-top: 3%;
   padding: 2%;
   display: flex;
 }
@@ -61,6 +70,25 @@ input::-webkit-inner-spin-button {
 .inactive-btn {
   background-color: $veryDarkCyan;
   color: $veryLightGrayishCyan;
+}
+
+.attribution {
+  background-color: $veryDarkCyan;
+  color: $strongCyan;
+  margin-top: auto;
+  height: 40px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: yellow;
+    font-weight: bolder;
+    text-decoration: none;
+  }
 }
 
 /* Specifics */
@@ -97,7 +125,7 @@ input::-webkit-inner-spin-button {
     border: none;
     height: 36px;
     margin-bottom: 8%;
-    text-indent: 340px;
+    text-indent: 300px;
   }
 
   .incorrect {

@@ -223,4 +223,5 @@ function blankSlate() {
   people.value = "";
   people.classList.remove("incorrect");
   customTip.style.border = "none";
+  customTip.value = "";
 }
