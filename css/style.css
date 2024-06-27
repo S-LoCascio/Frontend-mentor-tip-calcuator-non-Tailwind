@@ -268,3 +268,105 @@ label {
 .results button:hover {
   cursor: pointer;
 }
+
+@media (max-width: 800px) {
+  .card {
+    width: 100dvw;
+    flex-direction: column;
+    height: 84dvh;
+    padding: 7%;
+  }
+  .billDiv input {
+    margin-bottom: 0;
+    text-indent: 250px;
+  }
+  .billDiv input::-moz-placeholder {
+    text-indent: 250px;
+  }
+  .billDiv input::placeholder {
+    text-indent: 250px;
+  }
+  .infoInput {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+  }
+  .results {
+    width: 100%;
+    padding: 7%;
+    height: 50%;
+  }
+  .results .tip-container {
+    margin-bottom: 10%;
+  }
+  .results .total-container {
+    margin-bottom: 10%;
+  }
+  .btnDiv {
+    margin-bottom: 10%;
+  }
+  .btnDiv .btns {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .btnDiv .btns input {
+    font-family: "space Mono", monospace;
+    font-size: 20px;
+    height: 40px;
+  }
+  .btnDiv .btns .button-6 {
+    background-color: hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%);
+    border: none;
+    /* text-indent: 50px; */
+  }
+  .btnDiv .btns .button-6::-moz-placeholder {
+    text-indent: 45px;
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
+  }
+  .btnDiv .btns .button-6::placeholder {
+    text-indent: 45px;
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
+  }
+  .peopleDiv {
+    margin-top: 10%;
+    position: relative;
+  }
+  .peopleDiv .error-text {
+    position: absolute;
+    color: red;
+    right: 12px;
+    font-size: 16px;
+    top: -3px;
+  }
+  .peopleDiv input {
+    color: hsl(183, 100%, 15%);
+    font-size: 20px;
+    font-family: "space mono", monospace;
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    height: 36px;
+    margin-bottom: 10%;
+    text-indent: 300px;
+  }
+  .peopleDiv .incorrect {
+    border: 2px solid red;
+  }
+  .peopleDiv input::-moz-placeholder {
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
+    text-indent: 300px;
+  }
+  .peopleDiv input::placeholder {
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
+    text-indent: 300px;
+  }
+  .peopleDiv .icon {
+    position: absolute;
+    top: 32px;
+    left: 12px;
+  }
+}

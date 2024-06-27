@@ -286,3 +286,111 @@ label {
     cursor: pointer;
   }
 }
+
+@media (max-width: 800px) {
+  .card {
+    width: 100dvw;
+    flex-direction: column;
+    height: 84dvh;
+    padding: 7%;
+  }
+
+  .billDiv {
+    input {
+      margin-bottom: 0;
+      text-indent: 250px;
+    }
+
+    input::placeholder {
+      text-indent: 250px;
+    }
+  }
+
+  .infoInput {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+  }
+
+  .results {
+    width: 100%;
+    padding: 7%;
+    height: 50%;
+
+    .tip-container {
+      margin-bottom: 10%;
+    }
+
+    .total-container {
+      margin-bottom: 10%;
+    }
+  }
+
+  .btnDiv {
+    margin-bottom: 10%;
+
+    .btns {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+
+      input {
+        font-family: "space Mono", monospace;
+        font-size: 20px;
+        height: 40px;
+      }
+
+      .button-6 {
+        background-color: $lightGrayishCyan;
+        color: $veryDarkCyan;
+        border: none;
+        /* text-indent: 50px; */
+      }
+
+      .button-6::placeholder {
+        text-indent: 45px;
+        color: $veryDarkCyan;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .peopleDiv {
+    margin-top: 10%;
+    position: relative;
+
+    .error-text {
+      position: absolute;
+      color: red;
+      right: 12px;
+      font-size: 16px;
+      top: -3px;
+    }
+
+    input {
+      color: $veryDarkCyan;
+      font-size: 20px;
+      font-family: "space mono", monospace;
+      background-color: $veryLightGrayishCyan;
+      border: none;
+      height: 36px;
+      margin-bottom: 10%;
+      text-indent: 300px;
+    }
+
+    .incorrect {
+      border: 2px solid red;
+    }
+
+    input::placeholder {
+      color: $veryDarkCyan;
+      font-weight: 700;
+      text-indent: 300px;
+    }
+
+    .icon {
+      position: absolute;
+      top: 32px;
+      left: 12px;
+    }
+  }
+}

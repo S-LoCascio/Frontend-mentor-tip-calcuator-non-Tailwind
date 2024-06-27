@@ -130,6 +130,7 @@ tipButtonCollection.forEach((item) =>
 const tipAmount = document.getElementById(`tipResults`);
 const totalAmount = document.getElementById(`totalResults`);
 
+bill.addEventListener("blur", getTheResultsId);
 people.addEventListener("blur", getTheResultsId);
 
 function getTheResultsId() {
